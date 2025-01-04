@@ -1,0 +1,43 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+
+nav {
+    background-color: #f7f7f8;
+}
+
+a {
+    color: #3c404a;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.selected { 
+    color:#5762d5;
+}
+
+.intro {
+    background-color: #3c404a;
+    color: white;
+}
+
+.product-card {
+    background-color:#e9e6f0;
+    border-radius: 20px;
+    width: 250px;
+}
+
+.product-image {
+    border-radius: 20px 20px 0 0;
+}
+
+footer {
+    background-color: #2B2343;
+    color: #e9e6f0;
+    text-align: center;
+    height: 300px;
+    width: 100%;
+}
