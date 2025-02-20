@@ -1,0 +1,52 @@
+
+
+.cal-con {
+    width: 300px;
+    margin: 30px auto;
+    background-color: #212141;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.cal-con h2 {
+    background-color: #efeefe;
+    color: #212141;
+    margin: 0;
+    padding: 13px 20px 0px 20px;
+    height: 54px;
+    font-size: 35px;
+    grid-column: 1/5;
+    grid-row: 1/2;
+    border-radius: 10px;
+}
+
+.cal-con h4 {
+    text-align: center;
+    background-color: #36355f;
+    color: #efeefe;
+    margin: 0;
+    border-radius: 10px;
+    height: 45px;
+    font-size: 22px;
+    padding-top: 20px;
+    transition-duration: .3s;
+}
+
+.cal-con h4:hover {
+    cursor: pointer;
+    background-color: #6568ff;
+    box-shadow: 0px 0px 20px #000;
+}
+
+.cal-con .operator-btn {
+    background-color: #ffd33e !important;
+     color: #212141 !important;
+     transition-duration: .3s;
+}
+
+.cal-con .operator-btn:hover{
+    background-color: #e2ad00 !important;
+}

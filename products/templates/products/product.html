@@ -1,0 +1,78 @@
+{% extends "base.html"%}
+{% load static %}
+
+
+{% block description %}{{product.description}}{% endblock %}
+{% block robots %}index, follow{% endblock %}
+{% block keywords %}Signup page, my shop{% endblock %}
+{% block css %}{% static "products/product.css" %}{% endblock %}
+{% block css1 %}<link rel="stylesheet" href="{% static "products/style.css" %}">{% endblock %}
+{% block title%}{{ product.title }}{% endblock %}
+
+
+
+{% block body %}
+    {% include "includes/nav.html" %}
+
+    <div class="product-main-con">
+        <main>
+            <img src="{{product.image.url}}" alt="">
+            <div>
+                <h1>{{product.title}}</h1>
+                <p>{{product.brand.title}}</p>
+                <p>{{product.description}}</p>
+                <button>Add to Cart</button>
+            </div>
+        </main>
+        <section id="feedback">
+            <h3>Customer feedback:</h3>
+            {% if messages %}
+            {%for message in messages %}
+                <p style="color:green">{{message}}</p>
+            {%endfor%}
+            {% endif %}
+            <form action="" method="post">{% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{field.label_tag}}
+                        {{field}}
+                        {% for error in field.errors %}
+                            <p style="color:red">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+
+                <!-- <div class="form-group">{{form.name.label_tag}}</div>
+                <div class="form-group">{{form.name}}</div>
+                {% for error in form.name.errors %}
+                <p style="color:red">{{error}}</p>
+                {% endfor %}
+                {{form.name.help_text}}
+                <div class="form-group">{{form.email.label_tag}}</div>
+                <div class="form-group">{{form.email}}</div>
+                <button type="submit">Submit</button>
+
+                <label for="username">Name</label>
+                <input type="text" name="username" id="username"> -->
+
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section>
+            {% for review in reviews %}
+                <h4>{{ review.name }} - {{ review.rating }}
+                    {% if review.rating == 5 %}⭐⭐⭐⭐⭐
+                    {% elif review.rating == 4 %}⭐⭐⭐⭐
+                    {% elif review.rating == 3 %}⭐⭐⭐
+                    {% elif review.rating == 2 %}⭐⭐
+                    {% else %}⭐
+                    {% endif %}
+                </h4>
+                <p>{{review.text}}</p>
+            {% endfor %}
+        </section>
+    </div>
+
+{% endblock %}

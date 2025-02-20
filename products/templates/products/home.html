@@ -1,0 +1,84 @@
+{% extends "base.html"%}
+{% load static %}
+
+
+{% block description %}This is myshop{% endblock %}
+{% block robots %}index, follow{% endblock %}
+<!-- noindex, nofollow ______  dont appear in search engines -->
+{% block keywords %}Asian black suits, my shop{% endblock %}
+{% block css %}{% static "products/style.css" %}{% endblock %}
+
+{% block title%}Home Page{% endblock %}
+
+{% block body %}
+    {% include "includes/nav.html" %}
+
+
+    <div class="container">
+        
+        <div class="intro">
+            <div class="intro-content">
+                <h3>This is video</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis inventore neque dolorum  distinctio fuga sequi expedita praesentium itaque porro debitis autem totam adipisci eveniet, vel quod doloremque. Ex, nisi ea?</p>
+                <a>Become a Member</a>
+            </div>
+
+            <div class="intro-video">
+                <video controls>
+                    <source src="{% static "products/vid/intro-video.mp4" %}">
+                </video>
+            </div>
+        </div>
+
+        <!-- Product cards -->
+        <div class="product-header">
+            <h3>
+                Suits
+            </h3>
+            <a href="{% url "products" "product" %}">View More</a>
+        </div>
+        <main class="product-container">
+            {% for product in products %}
+            <div class="product-card">
+                <div class="review-container">
+                    <p>Review 4.8⭐</p>
+                </div>
+                <img class="product-image" src="{{ product.image.url }}" alt="suit img" >
+                <!-- onmouseover="showReview()" onmouseout="hideReview()" -->
+                <div class="product-description">
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.brand.title }}</p>
+                    <img width="40px" src="{{ product.brand.logo.url }}" alt="">
+                    <a href="{% url 'product_page' product.brand.title product.slug %}">View Product</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% comment %} <div class="product-card">
+                <img class="product-image" src="{% static "products/img/suit-2.png" %}" alt="suit img">
+                <div class="product-description">
+                    <h3>Suit</h3>
+                    <p>Russian Suit for sale, Color navy pale blue</p>
+                    <a>View Product</a>
+                </div>
+            </div>
+    
+            <div class="product-card">
+                <img class="product-image" src="{% static "products/img/suit-3.png" %}" alt="suit img">
+                <div class="product-description">
+                    <h3>Suit</h3>
+                    <p>Russian Suit for sale, Color navy pale blue</p>
+                    <a>View Product</a>
+                </div>
+            </div> {% endcomment %}
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <p>This is Footer</p>
+            <h5>Some of My Projects</h5>
+            <a href="calculator.html">calculator</a>
+        </footer>
+    </div>
+
+{% endblock %} 

@@ -1,0 +1,71 @@
+{% extends "base.html"%}
+{% load static %}
+
+
+{% block description %}This is myshop{% endblock %}
+{% block robots %}index, follow{% endblock %}
+{% block keywords %}Signup page, my shop{% endblock %}
+{% block css %}{% static "products/signup.css" %}{% endblock %}
+{% block css1 %}<link rel="stylesheet" href="{% static "products/style.css" %}">{% endblock %}
+{% block title%}Myshop - Signup{% endblock %}
+
+
+
+{% block body %}
+    {% include "includes/nav.html" %}
+
+
+    <div class="form">
+        <form action="">
+            <div class="name form-control">
+                <label for="name">Name :</label><br>
+                <input type="text" name="name" id="name">
+            </div> 
+
+            <div class="email form-control">
+                <label for="email">Email :</label><br>
+                <input type="email" name="email" id="email">
+            </div> 
+                <!-- 
+            <div class="mobile">
+                <label for="mobile">Mobile :</label>
+                <input type="tel" name="mobile" id="mobile">
+            </div> 
+
+            <div class="gender">
+                <label for="gender">Gender :</label>
+                <select name="gender" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Trans">Trans</option>
+                </select>
+            </div> 
+
+            <div class="birthdate">
+                <label for="mobile">Birthdate :</label>
+                <input type="date" name="birthdate" id="birthdate">
+            </div>  -->
+
+            <div class="password form-control">
+                <label for="password">Password :</label><br>
+                <input type="password" name="password" id="password">
+            </div> 
+
+            <!-- <div class="profile">
+                <label for="profile">Profile Image :</label>
+                <input type="file" name="profile" id="profile">
+            </div>  -->
+
+            <div class="terms">
+                <input type="checkbox" name="terms" id="terms">
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+
+            <div class="submit ">
+                <button type="submit">Submit</button>
+            </div> 
+            
+        </form>
+    </div>
+
+{% endblock %}
